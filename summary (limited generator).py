@@ -28,9 +28,8 @@ def summary(conn):
 
 
 if __name__ == "__main__":
-    con = db.connect(
-        host="localhost", database="cookbook", password="rgnqmwzlf589pnzn", user="root"
-    )
+    # Add your parameters
+    con = db.connect()
     cursor_amount = con.cursor(buffered=True, dictionary=True)
     cursor_amount.execute("SELECT SUM(miles) as miles FROM driver_log")
 
