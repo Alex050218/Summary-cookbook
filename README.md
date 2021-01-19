@@ -16,4 +16,4 @@ all the data also on the fly.
 ***I saw that the given solution would consume a lot of memory and resources making it unable to 
 handle tables with a conconsiderable amount of rows.***
 
-##[LINK TO THE BOOK ON AMAZON](https://www.amazon.com/MySQL-Cookbook-Paul-DuBois/dp/059652708X)
+## [LINK TO THE BOOK ON AMAZON](https://www.amazon.com/MySQL-Cookbook-Paul-DuBois/dp/059652708X)
