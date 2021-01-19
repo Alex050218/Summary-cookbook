@@ -26,12 +26,8 @@ def inf_data(connexion):
 
 
 def summary():
-    conn = db.connect(
-        host="localhost",
-        database="cookbook",
-        password="rgnqmwzlf589pnzn",
-        user="root"
-    )
+    # Add your parameters
+    conn = db.connect()
 
     cursor_emp = conn.cursor(buffered=True)
     cursor_emp.execute(
@@ -50,12 +46,17 @@ def summary():
                 emp_summary["date_miles"].append([row_date, row_miles])
                 emp_summary["miles_dr"] += row_miles
 
-        print(emp_summary)
+        yield emp_summary
         emp_summary["date_miles"] = []
         emp_summary["miles_dr"] = 0
 
 
 if __name__ == "__main__":
-    start = perf_counter()
-    summary()
-    print(f"Taken time: {perf_counter() - start}")
+    for emp in summary():
+        print(
+            f"Name: {emp['name']}, days on road: {len(emp['date_miles'])}, "
+            f"miles driven: {emp['miles']}"
+        )
+
+        for road_day in emp["date_miles"]:
+            print(f"{'' * 3} date: {road_day[0]}, driven miles: {road_day[1]}")
